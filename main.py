@@ -8,7 +8,9 @@ with open("config.json") as configfile:
     config = json.loads(configfile.read());
     configfile.close();
 
-    base_url = config.get("base_url");
+    host = config.get("host");
+    port = config.get("port");
+    base_url = f"http://{host}:{port}/";
 
 def fileExists(path):
     return Path(path).exists();
@@ -75,4 +77,4 @@ def route_uploadFile():
         AudioSegment.from_file(output_path).export(removeExtensionFromFileName(output_path) + ".mp3", format="mp3");
     return '{"success": true}';
 
-app.run("192.168.2.38", 4112);
+app.run(host, port);
