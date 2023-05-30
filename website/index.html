@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music Host</title>
+
+    <style>
+      body {
+        background: #232323
+      }
+      * {
+          color: white;
+      }
+
+      .download_button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    Upload file: <input type="file" id="upload_input" multiple />
+    <br />
+    <button id="upload">upload</button>
+    <br />
+    <a id = "error">error: nothing</a>
+    <br />
+
+    <br />
+    <a>files:</a>
+    <ol id = "file_list">
+
+    </ol>
+
+    <script src = "website/main.js"></script>
+  </body>
+</html>
