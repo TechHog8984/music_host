@@ -1,3 +1,4 @@
 {
-    "base_url": "ip:port/"
+    "host": "",
+    "port": 0000
 }
