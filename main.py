@@ -2,7 +2,13 @@ from flask import Flask, request, Response;
 from werkzeug.datastructures import Headers;
 from pydub import AudioSegment;
 from pathlib import Path;
-import os;
+import os, json;
+
+with open("config.json") as configfile:
+    config = json.loads(configfile.read());
+    configfile.close();
+
+    base_url = config.get("base_url");
 
 def fileExists(path):
     return Path(path).exists();
@@ -23,7 +29,7 @@ def route_website(filename):
         with open(f"website/{filename}") as f:
             contents = f.read();
             f.close();
-            return contents;
+            return contents.replace("BASE_URL", base_url);
     except Exception as e:
         return "error: " + str(e);
 
